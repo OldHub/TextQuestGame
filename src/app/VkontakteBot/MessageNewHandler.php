@@ -7,18 +7,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use JsonException;
+use Modules\Vk\Dto\Response\MessageDto;
 use VK\Client\VKApiClient;
 
-abstract class MessageNewHandler implements RequestTypeHandlerInterface
+class MessageNewHandler
 {
 
     /**
-     * @param Request $request
      * @throws JsonException
      */
-    public static function handle(Request $request): void
+    public static function handle(MessageDto $dto): void
     {
-        $userId = $request->object['message']['from_id'];
+        $userId = $dto->from_id;
 
         $dialogStep = Cache::remember("dialog_step_$userId", 5,
             static function () {
@@ -26,8 +26,8 @@ abstract class MessageNewHandler implements RequestTypeHandlerInterface
             }
         );
 
-        if (isset($request->object['message']['payload'])) {
-            $payload = json_decode($request->object['message']['payload'], true, 512, JSON_THROW_ON_ERROR);
+        if (isset($dto->payload)) {
+            $payload = json_decode($dto->payload, true, 512, JSON_THROW_ON_ERROR);
             Log::alert($payload);
             if (isset($payload['button'])) {
                 $dialogStep = $payload['button'];
@@ -35,7 +35,7 @@ abstract class MessageNewHandler implements RequestTypeHandlerInterface
         }
 
         $actionResponse = new ActionResponse(
-            $request,
+            $dto,
             new VKApiClient(config('vk.api.version')),
             config('vk.secrets.group')
         );

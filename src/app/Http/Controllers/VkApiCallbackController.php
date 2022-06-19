@@ -18,7 +18,6 @@ class VkApiCallbackController extends Controller
     public function execute(Request $request): ?string
     {
         $dto = new Dto($request->all());
-        dd($dto);
 
         if ($dto->secret !== config('vk.secrets.callback')) {
             return null;
@@ -29,7 +28,7 @@ class VkApiCallbackController extends Controller
         }
 
         if ($dto->type === 'message_new') {
-            MessageNewHandler::handle($dto->object);
+            MessageNewHandler::handle($dto->object->message);
         }
 
         return null;
