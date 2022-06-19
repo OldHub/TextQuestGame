@@ -9,14 +9,6 @@ Service where you can store your contacts
 
 `bash start.sh`
 
-<b>Stoplight</b>
-
-https://nikmaksimow77.stoplight.io/docs/Contacts/YXBpOjUzMjU5MTUz-api-1-0
-
-<b>Postman</b>
-
-You can find postman along the path src/storage/postman/postman_collection.json
-
 <b>Ports</b>
 
 - **nginx** - `:80`
