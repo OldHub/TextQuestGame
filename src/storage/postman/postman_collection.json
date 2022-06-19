@@ -1,0 +1,639 @@
+{
+    "info": {
+        "_postman_id": "5f52f84a-0ed8-4016-b89a-956ef7749714",
+        "name": "Example",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Contact",
+            "item": [
+                {
+                    "name": "Favorite",
+                    "item": [
+                        {
+                            "name": "favorite",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "2|RRuve0CqmLgNr57D1qfG3iQQzQG2pJ4BLW3nzZfi",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "formdata",
+                                    "formdata": []
+                                },
+                                "url": {
+                                    "raw": "{{url}}/v1.0/contact/favorite/2",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "v1.0",
+                                        "contact",
+                                        "favorite",
+                                        "2"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "favorite",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "2|RRuve0CqmLgNr57D1qfG3iQQzQG2pJ4BLW3nzZfi",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "formdata",
+                                    "formdata": []
+                                },
+                                "url": {
+                                    "raw": "{{url}}/v1.0/contact/favorite/2",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "v1.0",
+                                        "contact",
+                                        "favorite",
+                                        "2"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Create",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "2|RRuve0CqmLgNr57D1qfG3iQQzQG2pJ4BLW3nzZfi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "12312312",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "88005553532",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{url}}/v1.0/contact",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "v1.0",
+                                "contact"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "2|RRuve0CqmLgNr57D1qfG3iQQzQG2pJ4BLW3nzZfi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"phone\": \"89997778866\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{url}}/v1.0/contact/1",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "v1.0",
+                                "contact",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "2|RRuve0CqmLgNr57D1qfG3iQQzQG2pJ4BLW3nzZfi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": []
+                        },
+                        "url": {
+                            "raw": "{{url}}/v1.0/contacts",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "v1.0",
+                                "contacts"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "2|RRuve0CqmLgNr57D1qfG3iQQzQG2pJ4BLW3nzZfi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": []
+                        },
+                        "url": {
+                            "raw": "{{url}}/v1.0/contact/2",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "v1.0",
+                                "contact",
+                                "2"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "2|RRuve0CqmLgNr57D1qfG3iQQzQG2pJ4BLW3nzZfi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": []
+                        },
+                        "url": {
+                            "raw": "{{url}}/v1.0/contact/1",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "v1.0",
+                                "contact",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "register",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Device",
+                                "value": "",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "123",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "nik.maksimow88@yandex.ru",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "123",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{url}}/v1.0/auth/registration",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "v1.0",
+                                "auth",
+                                "registration"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "password",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "email",
+                                    "value": "123@gmail.com",
+                                    "type": "text",
+                                    "disabled": true
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{url}}/v1.0/auth/password?token=SK2fxeenaD5VOtKTfZokUwPHIbqNQVpxWWGopIvRh8aWZ59VKSRzurMmJKvAjrwCkYHhiKyDvCcDSHIc",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "v1.0",
+                                "auth",
+                                "password"
+                            ],
+                            "query": [
+                                {
+                                    "key": "token",
+                                    "value": "SK2fxeenaD5VOtKTfZokUwPHIbqNQVpxWWGopIvRh8aWZ59VKSRzurMmJKvAjrwCkYHhiKyDvCcDSHIc"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "forgot",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "2|RRuve0CqmLgNr57D1qfG3iQQzQG2pJ4BLW3nzZfi",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "email",
+                                    "value": "nik.maksimow88@yandex.ru",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{url}}/v1.0/auth/forgot",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "v1.0",
+                                "auth",
+                                "forgot"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "password",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "password",
+                                    "value": "123",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "WAXZ6SYWJtLVSqXUVe1taoUemtLFO89aLt3aZic24hg5Oc9LjnWhDEqd7Q3UHIiAKRMbA5jIOan0XGce",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{url}}/v1.0/auth/password",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "v1.0",
+                                "auth",
+                                "password"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "login",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "password",
+                                    "value": "123",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "nik.maksimow88@yandex.ru",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{url}}/v1.0/auth/login",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "v1.0",
+                                "auth",
+                                "login"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "logout",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "6|YYoM7s5eS47EJs5KxIshBbDQ166rXS6RUKLQAknM",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/v1.0/auth/logout",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "v1.0",
+                                "auth",
+                                "logout"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

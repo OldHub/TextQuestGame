@@ -1,0 +1,1225 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "api 1.0",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api/1.0"
+        }
+    ],
+    "paths": {
+        "/auth/register": {
+            "post": {
+                "summary": "Register",
+                "operationId": "post-api-1.0-auth-register",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Token"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "token": "1|QkL1vTHH1ZZJIyu2UFlqg4UWjTMJnWO5KFVEMOUr"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "description": "application/json",
+                        "name": "Accept"
+                    }
+                ],
+                "description": "",
+                "tags": [
+                    "Auth"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "examples": {
+                                "example-1": {
+                                    "value": {
+                                        "name": "nik",
+                                        "email": "123@mail.com",
+                                        "password": "password"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": []
+        },
+        "/auth/login": {
+            "post": {
+                "summary": "Login",
+                "operationId": "post-api-1.0-auth-login",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Token"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "token": "1|QkL1vTHH1ZZJIyu2UFlqg4UWjTMJnWO5KFVEMOUr"
+                                        }
+                                    }
+                                }
+                            },
+                            "application/xml": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "email": {
+                                            "type": "string",
+                                            "example": "mail@mail.com"
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "example": "password"
+                                        }
+                                    }
+                                },
+                                "examples": {}
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept",
+                        "description": "application/json"
+                    }
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "mail@mail.ru"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password"
+                                    }
+                                },
+                                "required": [
+                                    "email",
+                                    "password"
+                                ]
+                            },
+                            "examples": {
+                                "example-1": {
+                                    "value": {
+                                        "email": "mail@mail.ru",
+                                        "password": "password"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters": []
+        },
+        "/auth/logout": {
+            "parameters": [],
+            "post": {
+                "summary": "Logout",
+                "operationId": "post-api-1.0-auth-logout",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Success"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "message": "Successful"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "Bearer Token"
+                    }
+                ],
+                "tags": [
+                    "Auth"
+                ]
+            }
+        },
+        "/auth/forgot": {
+            "parameters": [],
+            "post": {
+                "summary": "Forgot",
+                "operationId": "post-api-1.0-auth-forgot",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Success"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "message": "Successful"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept",
+                        "description": "application/json"
+                    }
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "mail@mail.ru"
+                                    }
+                                },
+                                "required": [
+                                    "email"
+                                ]
+                            },
+                            "examples": {
+                                "example-1": {
+                                    "value": {
+                                        "email": "mail@mail.ru"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/password?token={token}": {
+            "parameters": [
+                {
+                    "schema": {
+                        "type": "string",
+                        "example": "asdfafsdsfgsdfsdfsdfsdfs"
+                    },
+                    "name": "token",
+                    "in": "path",
+                    "required": true
+                }
+            ],
+            "post": {
+                "summary": "Password reset",
+                "operationId": "post-api-1.0-auth-forgot",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept",
+                        "description": "application/json"
+                    }
+                ],
+                "description": "",
+                "tags": [
+                    "Auth"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password"
+                                    },
+                                    "token": {
+                                        "type": "string",
+                                        "example": "tffDAEOeH9F3eAZGNgNWKJqW231m2sJn3Q3zjGPsPEUB206SwyLdVw2nfYtcvPGr6UxR7u6jnIqMTIrb"
+                                    }
+                                },
+                                "required": [
+                                    "password",
+                                    "token"
+                                ]
+                            },
+                            "examples": {
+                                "example-1": {
+                                    "value": {
+                                        "password": "password",
+                                        "token": "tffDAEOeH9F3eAZGNgNWKJqW231m2sJn3Q3zjGPsPEUB206SwyLdVw2nfYtcvPGr6UxR7u6jnIqMTIrb"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "name": "nik",
+                                            "email": "123@mail.com",
+                                            "password": "password"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "Password check",
+                "operationId": "get-api-1.0-auth-password",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseUser"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "id": 1,
+                                            "name": "nik",
+                                            "email": "123@mail.com",
+                                            "password": "password"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Success"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "message": "Successful"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept",
+                        "description": "application/json"
+                    }
+                ],
+                "tags": [
+                    "Auth"
+                ]
+            }
+        },
+        "/contact": {
+            "parameters": [],
+            "post": {
+                "summary": "Create contact",
+                "operationId": "post-api-1.0-auth-forgot",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "Bearer Token"
+                    }
+                ],
+                "description": "",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Contact"
+                            },
+                            "examples": {
+                                "example-1": {
+                                    "value": {
+                                        "name": "ФИО",
+                                        "phone": "88005553535"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseContact"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "id": 1,
+                                            "name": "ФИО",
+                                            "phone": "88005553535",
+                                            "isFavorite": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Contact"
+                ]
+            }
+        },
+        "/contact/{id}": {
+            "parameters": [
+                {
+                    "schema": {
+                        "type": "string",
+                        "example": "1"
+                    },
+                    "name": "id",
+                    "in": "path",
+                    "required": true
+                }
+            ],
+            "get": {
+                "summary": "Get contact",
+                "operationId": "getcontact---copy",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseContact"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "id": 1,
+                                            "name": "ФИО",
+                                            "phone": "88005553535",
+                                            "isFavorite": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "message": "Not found",
+                                            "exception": "Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException",
+                                            "file": "/var/www/html/Modules/Contact/Services/ContactService.php",
+                                            "line": 44,
+                                            "trace": [
+                                                {}
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Contact"
+                ],
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "Bearer Token"
+                    }
+                ]
+            },
+            "patch": {
+                "summary": "Update contact",
+                "operationId": "patchcontact-id",
+                "tags": [
+                    "Contact"
+                ],
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "description": "application/json",
+                        "name": "Content-Type"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "description": "application/json",
+                        "name": "Accept"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "description": "Bearer Token",
+                        "name": "authorization"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseContact"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "id": 1,
+                                            "name": "ФИО",
+                                            "phone": "88005553535",
+                                            "isFavorite": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "message": "Not found",
+                                            "exception": "Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException",
+                                            "file": "/var/www/html/Modules/Contact/Services/ContactService.php",
+                                            "line": 44,
+                                            "trace": [
+                                                {}
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "phone": {
+                                        "type": "string",
+                                        "description": "Required if name null",
+                                        "example": "88005553535"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Required if phone null",
+                                        "example": "ФИО"
+                                    }
+                                },
+                                "required": [
+                                    "phone",
+                                    "name"
+                                ]
+                            },
+                            "examples": {
+                                "example-1": {
+                                    "value": {
+                                        "phone": "88005553535",
+                                        "name": "ФИО"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete contact",
+                "operationId": "deletecontact-id",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Success"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "message": "Successful"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "message": "Not found",
+                                            "exception": "Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException",
+                                            "file": "/var/www/html/Modules/Contact/Services/ContactService.php",
+                                            "line": 44,
+                                            "trace": [
+                                                {}
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Contact"
+                ]
+            }
+        },
+        "/contacts": {
+            "parameters": [],
+            "post": {
+                "summary": "Contacts list",
+                "operationId": "post-api-1.0-auth-forgot",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "Bearer Token"
+                    }
+                ],
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseContact"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "id": 1,
+                                            "name": "ФИО",
+                                            "phone": "88005553535"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Contact"
+                ]
+            }
+        },
+        "/favorite/{ContactId}": {
+            "parameters": [
+                {
+                    "schema": {
+                        "type": "string"
+                    },
+                    "name": "ContactId",
+                    "in": "path",
+                    "required": true
+                }
+            ],
+            "post": {
+                "summary": "Favorite add",
+                "operationId": "post-api-1.0-auth-forgot",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "Bearer Token"
+                    }
+                ],
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseContact"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "id": 1,
+                                            "name": "ФИО",
+                                            "phone": "88005553535",
+                                            "isFavorite": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "message": "Not found",
+                                            "exception": "Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException",
+                                            "file": "/var/www/html/Modules/Contact/Services/ContactService.php",
+                                            "line": 44,
+                                            "trace": [
+                                                {}
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "ContactFavorite"
+                ]
+            },
+            "delete": {
+                "summary": "Favorite delete",
+                "operationId": "deletefavorite",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Success"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "message": "Successful"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "message": "Not found",
+                                            "exception": "Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException",
+                                            "file": "/var/www/html/Modules/Contact/Services/ContactService.php",
+                                            "line": 44,
+                                            "trace": [
+                                                {}
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept",
+                        "description": "application/json"
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "application/json"
+                    }
+                ],
+                "tags": [
+                    "ContactFavorite"
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "title": "User",
+                "type": "object",
+                "description": "",
+                "x-examples": {
+                    "example-1": {
+                        "name": "nik",
+                        "email": "123@mail.com",
+                        "password": "password"
+                    }
+                },
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "enum": [
+                            "nik"
+                        ],
+                        "maxLength": 255
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "123@mail.com",
+                        "maxLength": 255
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "password",
+                        "maxLength": 100
+                    }
+                },
+                "required": [
+                    "name",
+                    "email",
+                    "password"
+                ]
+            },
+            "ResponseUser": {
+                "title": "ResponseUser",
+                "type": "object",
+                "description": "",
+                "x-examples": {
+                    "example-1": {
+                        "id": 1,
+                        "name": "nik",
+                        "email": "123@mail.com",
+                        "password": "password"
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "enum": [
+                            "nik"
+                        ],
+                        "maxLength": 255
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "123@mail.com",
+                        "maxLength": 255
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "password",
+                        "maxLength": 100
+                    }
+                }
+            },
+            "Token": {
+                "title": "Token",
+                "type": "object",
+                "properties": {
+                    "token": {
+                        "type": "string",
+                        "example": "1|QkL1vTHH1ZZJIyu2UFlqg4UWjTMJnWO5KFVEMOUr"
+                    }
+                },
+                "x-examples": {
+                    "example-1": {
+                        "token": "1|QkL1vTHH1ZZJIyu2UFlqg4UWjTMJnWO5KFVEMOUr"
+                    }
+                }
+            },
+            "Success": {
+                "title": "Success",
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Successful"
+                    }
+                },
+                "x-examples": {
+                    "example-1": {
+                        "message": "Successful"
+                    }
+                }
+            },
+            "Contact": {
+                "title": "Contact",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "name": "ФИО",
+                        "phone": "88005553535"
+                    }
+                },
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "ФИО",
+                        "maxLength": 255
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "88005553535",
+                        "maxLength": 20
+                    }
+                },
+                "required": [
+                    "name",
+                    "phone"
+                ]
+            },
+            "ResponseContact": {
+                "title": "ResponseContact",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "id": 1,
+                        "name": "ФИО",
+                        "phone": "88005553535",
+                        "isFavorite": true
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "ФИО",
+                        "maxLength": 255
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "88005553535",
+                        "maxLength": 20
+                    },
+                    "isFavorite": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "ContactList": {
+                "title": "Contact List",
+                "type": "array",
+                "x-examples": {
+                    "example-1": [
+                        {
+                            "id": 1,
+                            "name": "ФИО",
+                            "phone": "88005553535"
+                        }
+                    ]
+                },
+                "items": {
+                    "$ref": "#/components/schemas/ResponseContact"
+                }
+            },
+            "Error": {
+                "title": "Error",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "message": "Not found",
+                        "exception": "Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException",
+                        "file": "/var/www/html/Modules/Contact/Services/ContactService.php",
+                        "line": 44,
+                        "trace": [
+                            {}
+                        ]
+                    }
+                },
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Not found"
+                    },
+                    "exception": {
+                        "type": "string",
+                        "example": "Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException"
+                    },
+                    "file": {
+                        "type": "string",
+                        "example": "/var/www/html/Modules/Contact/Services/ContactService.php"
+                    },
+                    "line": {
+                        "type": "integer",
+                        "example": 44
+                    },
+                    "trace": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {}
+    }
+}

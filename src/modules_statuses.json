@@ -1,0 +1,16 @@
+{
+    "Blog": true,
+    "Strategy": true,
+    "Sale": true,
+    "Product": true,
+    "Order": true,
+    "ShortUrls": true,
+    "Urls": true,
+    "Tst": true,
+    "Test": true,
+    "Tests": true,
+    "Contacts": true,
+    "User": true,
+    "Contact": true,
+    "Auth": true
+}
