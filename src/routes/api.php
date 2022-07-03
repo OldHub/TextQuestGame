@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\VkApiCallbackController;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,5 +10,3 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::post('vk/callback', [VkApiCallbackController::class, 'execute']);

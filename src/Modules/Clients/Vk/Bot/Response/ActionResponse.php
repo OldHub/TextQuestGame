@@ -1,10 +1,10 @@
 <?php
 
-namespace App\VkontakteBot\Response;
+namespace Modules\Clients\Vk\Bot\Response;
 
-use App\VkontakteBot\BotKeyboard\Button;
-use App\VkontakteBot\BotKeyboard\ButtonRowFactory;
-use App\VkontakteBot\BotKeyboard\KeyboardFactory;
+use Modules\Clients\Vk\Bot\BotKeyboard\Button;
+use Modules\Clients\Vk\Bot\BotKeyboard\ButtonRowFactory;
+use Modules\Clients\Vk\Bot\BotKeyboard\KeyboardFactory;
 use Modules\Vk\Dto\Response\MessageDto;
 use VK\Client\VKApiClient;
 

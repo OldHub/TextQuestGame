@@ -1,12 +1,11 @@
 <?php
 
-namespace App\VkontakteBot;
+namespace Modules\Clients\Vk\Bot;
 
-use App\VkontakteBot\Response\ActionResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use JsonException;
+use Modules\Clients\Vk\Bot\Response\ActionResponse;
 use Modules\Vk\Dto\Response\MessageDto;
 use VK\Client\VKApiClient;
 

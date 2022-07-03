@@ -1,5 +1,5 @@
 <?php
-namespace App\VkontakteBot\BotKeyboard;
+namespace Modules\Clients\Vk\Bot\BotKeyboard;
 
 class ButtonRowFactory
 {
